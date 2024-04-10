@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AreaRestauranteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/areas', [AreaRestauranteController::class, 'store'])->name('areas.store');
+
+Route::get('/test', [AreaRestauranteController::class, 'test']);
+Route::post('/test', [AreaRestauranteController::class, 'test']);
