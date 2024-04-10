@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AreaRestauranteController;
+use App\Http\Controllers\ClienteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Rutas para tabla areas_restaurantes
 Route::post('/areas', [AreaRestauranteController::class, 'store'])->name('areas.store');
-
 Route::get('/test', [AreaRestauranteController::class, 'test']);
 Route::post('/test', [AreaRestauranteController::class, 'test']);
+
+
+
+//route para Tabla Cliente
+Route::post('/clientes', [ClienteController::class, 'store']);
