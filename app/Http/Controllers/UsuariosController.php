@@ -31,4 +31,32 @@ class UsuariosController extends Controller
         // Devolver una respuesta indicando que se ha insertado correctamente
         return response()->json(['message' => 'Usuario creado correctamente'], 201);
     }
+    
+    public function login(Request $request)
+    {
+        // Validar los datos recibidos del frontend
+        $request->validate([
+            'correo' => 'required|string|email',
+            'contrasena' => 'required|string',
+        ]);
+
+        // Obtener el usuario por su correo
+        $usuario = Usuario::where('correo', $request->input('correo'))->first();
+
+        if (!$usuario) {
+            return response()->json(['error' => 'Correo no encontrado'], 404);
+        }
+
+        if ($usuario->contrasena !== $request->input('contrasena')) {
+            return response()->json(['error' => 'Contraseña incorrecta'], 401);
+        }
+
+        // Construir la respuesta con los datos necesarios
+        $response = [
+            'rol' => $usuario->rol,
+            // Agrega más datos según lo necesites en tu frontend
+        ];
+
+        return response()->json($response, 200);
+    }
 }
