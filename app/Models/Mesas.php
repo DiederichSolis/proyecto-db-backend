@@ -4,13 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\AreaRestaurante;
 
-class Cliente extends Model
+
+class Mesas extends Model
 {
-    use HasFactory;
 
-    protected $table = 'cliente';
-
+    protected $table = 'mesas';
     
     protected $fillable = [
         'Id_area',
@@ -19,11 +19,9 @@ class Cliente extends Model
         'disponible',
         'unida',
     ];
-    
- /*
-    public function pedidos()
+
+    public function area()
     {
-        return $this->hasMany(Pedido::class);
+        return $this->belongsTo(AreaRestaurante::class, 'Id_area','id');
     }
-*/
 }
