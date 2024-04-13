@@ -30,5 +30,7 @@ Route::post('/test', [AreaRestauranteController::class, 'test']);
 //route para Tabla Cliente
 Route::post('/clientes', [ClienteController::class, 'store']);
 
+
 //route para usuarios
 Route::post('/usuarios', [UsuariosController::class, 'store']);
+Route::post('/login', [UsuariosController::class, 'login']);
