@@ -14,15 +14,19 @@ return new class extends Migration
     public function up()
 {
     Schema::create('quejas', function (Blueprint $table) {
-        $table->id();
-        $table->unsignedBigInteger('cliente_id');
-        $table->foreign('cliente_id')->references('id')->on('clientes');
+        $table->increments('id');
+        $table->unsignedBigInteger('Id_cliente');
+        $table->foreign('Id_cliente')->references('id')->on('cliente');
         $table->timestamp('fecha')->useCurrent();
         $table->text('motivo');
         $table->text('clasificacion');
         $table->text('persona');
-        $table->unsignedBigInteger('producto_id')->nullable();
-        $table->foreign('producto_id')->references('id')->on('productos');
+        $table->unsignedBigInteger('Id_bebida');
+        $table->foreign('Id_bebida')->references('id')->on('drinks');
+        $table->unsignedBigInteger('Id_plato');
+        $table->foreign('Id_plato')->references('id')->on('platos');
+        $table->unsignedBigInteger('Id_mesa');
+        $table->foreign('Id_mesa')->references('id')->on('mesas');
         $table->timestamps();
     });
 }

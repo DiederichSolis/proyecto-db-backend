@@ -14,9 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('encuestas', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('cliente_id');
-            $table->foreign('cliente_id')->references('id')->on('clientes');
+            $table->increments('id');
+            $table->unsignedBigInteger('Id_cliente');
+            $table->foreign('Id_cliente')->references('id')->on('cliente');
             $table->timestamp('fecha')->useCurrent();
             $table->integer('calificacion_amabilidad');
             $table->integer('calificacion_exactitud');

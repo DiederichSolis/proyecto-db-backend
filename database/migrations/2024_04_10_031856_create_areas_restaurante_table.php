@@ -17,7 +17,6 @@ return new class extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->boolean('fumadores')->nullable();
-            $table->boolean('movilidad_mesas')->nullable();
             $table->timestamps();
         });
     }

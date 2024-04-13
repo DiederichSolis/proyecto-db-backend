@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AreaRestauranteController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\UsuariosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +29,6 @@ Route::post('/test', [AreaRestauranteController::class, 'test']);
 
 //route para Tabla Cliente
 Route::post('/clientes', [ClienteController::class, 'store']);
+
+//route para usuarios
+Route::post('/usuarios', [UsuariosController::class, 'store']);

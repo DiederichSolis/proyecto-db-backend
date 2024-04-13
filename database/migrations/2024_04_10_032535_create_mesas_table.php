@@ -15,10 +15,12 @@ return new class extends Migration
     {
         Schema::create('mesas', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('area_id')->unsigned();
-            $table->foreign('area_id')->references('id')->on('areas_restaurante');
+            $table->integer('Id_area')->unsigned();
+            $table->foreign('Id_area')->references('id')->on('areas_restaurante');
             $table->integer('capacidad');
             $table->boolean('movible');
+            $table->boolean('disponible');
+            $table->boolean('unida')->default(false);
             $table->timestamps();
         });
     }

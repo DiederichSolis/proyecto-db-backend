@@ -14,17 +14,21 @@ return new class extends Migration
     public function up()
 {
     Schema::create('meseros', function (Blueprint $table) {
-        $table->id();
-        $table->string('nombre');
-        $table->unsignedBigInteger('area_id');
-        $table->foreign('area_id')->references('id')->on('areas_restaurante');
+        $table->increments('id');
+        $table->string('nombre', 100);
+        $table->integer('Id_mesa')->unsigned();
+        $table->foreign('Id_mesa')->references('id')->on('mesas');
         $table->timestamps();
     });
 }
 
+/**
+ * Reverse the migrations.
+ *
+ * @return void
+ */
 public function down()
 {
     Schema::dropIfExists('meseros');
 }
-
 };

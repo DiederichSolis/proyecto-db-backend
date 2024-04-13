@@ -13,13 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pagos', function (Blueprint $table) {
+        Schema::create('ordenes', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('Id_cuenta')->unsigned();
             $table->foreign('Id_cuenta')->references('id')->on('cuenta');
-            $table->float('total');
-            $table->string('metodo', 100);
-            $table->date('fecha');
+            $table->integer('Id_plato')->unsigned();
+            $table->foreign('Id_plato')->references('id')->on('platos');
+            $table->integer('Id_bebida')->unsigned();
+            $table->foreign('Id_bebida')->references('id')->on('drinks');
+            $table->integer('cantidad');
             $table->timestamps();
         });
     }
@@ -31,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pagos');
+        Schema::dropIfExists('ordenes');
     }
 };

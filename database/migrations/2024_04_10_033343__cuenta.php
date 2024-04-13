@@ -13,12 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pagos', function (Blueprint $table) {
+        Schema::create('cuenta', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('Id_cuenta')->unsigned();
-            $table->foreign('Id_cuenta')->references('id')->on('cuenta');
+            $table->integer('Id_mesa')->unsigned();
+            $table->foreign('Id_mesa')->references('id')->on('mesas');
+            $table->integer('Id_cliente')->unsigned();
+            $table->foreign('Id_cliente')->references('id')->on('cliente');
+            $table->boolean('estado');
             $table->float('total');
-            $table->string('metodo', 100);
             $table->date('fecha');
             $table->timestamps();
         });
@@ -31,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pagos');
+        Schema::dropIfExists('cuenta');
     }
 };
