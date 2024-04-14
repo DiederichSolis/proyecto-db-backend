@@ -13,13 +13,11 @@ class Cliente extends Model
 
     
     protected $fillable = [
-        'Id_area',
-        'capacidad',
-        'movible',
-        'disponible',
-        'unida',
-    ];
+        'nombre',
+        'nit',
+        'direccion',
     
+    ];
  /*
     public function pedidos()
     {

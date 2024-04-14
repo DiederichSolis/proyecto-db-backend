@@ -18,5 +18,15 @@ class VerifyCsrfToken extends Middleware
     '/clientes',
     '/usuarios',
     '/login',
+    '/mesas',
+    '/cuenta',
+    '/platos',
+    '/drinks',
+    '/ordenes',
+    '/pagos',
+    '/meseros',
+    '/encuestas',
+    '/quejas',
+    '/facturas'
     ];
 }
