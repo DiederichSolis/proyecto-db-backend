@@ -40,6 +40,7 @@ Route::get('/', function () {
 Route::post('/areas', [AreaRestauranteController::class, 'store'])->name('areas.store');
 Route::get('/test', [AreaRestauranteController::class, 'test']);
 Route::post('/test', [AreaRestauranteController::class, 'test']);
+Route::get('/obtenerAreas', [AreaRestauranteController::class, 'get_areas']);
 
 
 

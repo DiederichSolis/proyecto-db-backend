@@ -27,6 +27,14 @@ class AreaRestauranteController extends Controller
         // Devolver una respuesta indicando que se ha insertado correctamente
         return response()->json(['message' => 'Área restaurante creada correctamente'], 201);
     }
+    public function get_areas()
+    {
+        // Obtener todos los registros de la tabla areas_restaurante
+        $areas = AreaRestaurante::all();
+
+        // Devolver una respuesta con todos los registros
+        return response()->json($areas, 200);
+    }
     
     public function test()
     {

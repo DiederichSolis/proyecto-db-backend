@@ -27,6 +27,7 @@ class VerifyCsrfToken extends Middleware
     '/meseros',
     '/encuestas',
     '/quejas',
-    '/facturas'
+    '/facturas',
+    '/obtenerAreas',
     ];
 }
