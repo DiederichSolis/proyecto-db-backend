@@ -31,4 +31,13 @@ class OrdenesController extends Controller
     return response()->json(['message' => 'Orden creada correctamente'], 201);
 }
 
+public function get_ordenes()
+{
+// Obtener todos los registros de la tabla areas_restaurante
+     $ordenes = ordenes::all();
+
+// Devolver una respuesta con todos los registros
+    return response()->json($ordenes , 200);
+}
+
 }

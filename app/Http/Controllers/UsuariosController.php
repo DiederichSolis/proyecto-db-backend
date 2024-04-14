@@ -59,4 +59,14 @@ class UsuariosController extends Controller
 
         return response()->json($response, 200);
     }
+
+
+    public function get_usuarios()
+{
+// Obtener todos los registros de la tabla areas_restaurante
+     $usuarios= Usuario::all();
+
+// Devolver una respuesta con todos los registros
+    return response()->json($usuarios , 200);
+}
 }

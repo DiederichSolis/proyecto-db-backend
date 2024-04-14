@@ -28,6 +28,18 @@ class VerifyCsrfToken extends Middleware
     '/encuestas',
     '/quejas',
     '/facturas',
-    '/obtenerAreas',
+    '/getareas',
+    '/getclientes',
+    '/getcuenta',
+    '/getdrinks',
+    '/getencuestas',
+    '/getfacturas',
+    '/getmesas',
+    '/getmeseros',
+    '/getordenes',
+    '/getpagos',
+    '/getplatos',
+    '/getquejas',
+    '/getusuarios'
     ];
 }

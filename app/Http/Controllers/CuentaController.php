@@ -33,4 +33,16 @@ class CuentaController extends Controller
         return response()->json(['message' => 'Cuenta creada correctamente'], 201);
     }
     
+
+
+    public function get_cuenta()
+    {
+    // Obtener todos los registros de la tabla areas_restaurante
+         $cuenta = Cuenta::all();
+
+    // Devolver una respuesta con todos los registros
+        return response()->json($cuenta, 200);
+    }
+
+
 }

@@ -30,5 +30,13 @@ class PlatosController extends Controller
     return response()->json(['message' => 'Plato creado correctamente'], 201);
 }
 
+public function get_platos()
+{
+// Obtener todos los registros de la tabla areas_restaurante
+     $platos = Platos::all();
+
+// Devolver una respuesta con todos los registros
+    return response()->json($platos , 200);
+}
 
 }

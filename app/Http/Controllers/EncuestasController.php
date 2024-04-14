@@ -28,5 +28,14 @@ class EncuestasController extends Controller
         // Devolver una respuesta indicando que se ha insertado correctamente
         return response()->json(['message' => 'Encuesta creada correctamente'], 201);
     }
-    
+
+    public function get_encuestas()
+    {
+    // Obtener todos los registros de la tabla areas_restaurante
+         $encuestas = Encuestas::all();
+
+    // Devolver una respuesta con todos los registros
+        return response()->json($encuestas, 200);
+    }
+
 }

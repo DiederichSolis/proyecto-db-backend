@@ -27,4 +27,13 @@ class MeserosController extends Controller
     return response()->json(['message' => 'Mesero creado correctamente'], 201);
 }
 
+public function get_meseros()
+{
+// Obtener todos los registros de la tabla areas_restaurante
+     $meseros = Meseros::all();
+
+// Devolver una respuesta con todos los registros
+    return response()->json($meseros , 200);
+}
+
 }

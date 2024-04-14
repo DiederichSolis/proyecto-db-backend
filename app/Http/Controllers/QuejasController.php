@@ -37,4 +37,14 @@ class QuejasController extends Controller
         return response()->json(['message' => 'Queja creada correctamente'], 201);
     }
     
+
+    public function get_quejas()
+{
+// Obtener todos los registros de la tabla areas_restaurante
+     $quejas = Quejas::all();
+
+// Devolver una respuesta con todos los registros
+    return response()->json($quejas , 200);
+}
+
 }

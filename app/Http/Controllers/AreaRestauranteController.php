@@ -27,6 +27,7 @@ class AreaRestauranteController extends Controller
         // Devolver una respuesta indicando que se ha insertado correctamente
         return response()->json(['message' => 'Área restaurante creada correctamente'], 201);
     }
+
     public function get_areas()
     {
         // Obtener todos los registros de la tabla areas_restaurante
@@ -36,15 +37,5 @@ class AreaRestauranteController extends Controller
         return response()->json($areas, 200);
     }
     
-    public function test()
-    {
-        // Crear un registro de prueba en la tabla areas_restaurante
-        $area = new AreaRestaurante();
-        $area->nombre = 'Área de prueba';
-        $area->fumadores = true;
-        $area->movilidad_mesas = false;
-        $area->save();
-
-        return response()->json(['message' => 'Registro de prueba creado correctamente'], 200);
-    }
+    
 }

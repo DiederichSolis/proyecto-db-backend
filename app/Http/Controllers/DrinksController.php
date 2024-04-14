@@ -28,5 +28,15 @@ class DrinksController extends Controller
         // Devolver una respuesta indicando que se ha insertado correctamente
         return response()->json(['message' => 'Bebida creada correctamente'], 201);
     }
+
+    public function get_drinks()
+    {
+    // Obtener todos los registros de la tabla areas_restaurante
+         $drinks = Drinks::all();
+
+    // Devolver una respuesta con todos los registros
+        return response()->json($drinks, 200);
+    }
+
     
 }

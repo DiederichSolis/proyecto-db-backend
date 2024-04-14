@@ -31,4 +31,14 @@ class PagosController extends Controller
     return response()->json(['message' => 'Pago creado correctamente'], 201);
 }
 
+public function get_pagos()
+{
+// Obtener todos los registros de la tabla areas_restaurante
+     $pagos = Pagos::all();
+
+// Devolver una respuesta con todos los registros
+    return response()->json($pagos , 200);
+}
+
+
 }

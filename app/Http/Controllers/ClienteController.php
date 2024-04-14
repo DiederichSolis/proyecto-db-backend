@@ -30,4 +30,15 @@ class ClienteController extends Controller
     return response()->json(['message' => 'Cliente creado correctamente'], 201);
 }
 
+    public function get_cliente()
+{
+    // Obtener todos los registros de la tabla cliente
+    $cliente = Cliente::all();
+
+    // Devolver una respuesta con todos los registros
+    return response()->json($cliente, 200);
+}
+
+
+
 }
