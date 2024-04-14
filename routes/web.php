@@ -41,6 +41,8 @@ Route::post('/areas', [AreaRestauranteController::class, 'store'])->name('areas.
 Route::get('/test', [AreaRestauranteController::class, 'test']);
 Route::post('/test', [AreaRestauranteController::class, 'test']);
 Route::get('/getareas', [AreaRestauranteController::class, 'get_areas']);
+Route::update('/updateareas', [AreaRestauranteController::class, 'update']);
+
 
 
 
@@ -53,6 +55,7 @@ Route::get('/getclientes', [ClienteController::class, 'get_cliente']);
 //route para usuarios
 Route::post('/usuarios', [UsuariosController::class, 'store']);
 Route::get('/getusuarios', [UsuariosController::class, 'get_usuarios']);
+Route::update('/updateusuarios', [UsuariosController::class, 'update']);
 
 
 //route para login 
@@ -61,6 +64,9 @@ Route::post('/login', [UsuariosController::class, 'login']);
 //route oara mesas
 Route::post('/mesas', [MesasController::class, 'store']);
 Route::get('/getmesas', [MesasController::class, 'get_mesas']);
+Route::update('/updatemesas', [MesasController::class, 'update']);
+
+
 
 
 //route para cuenta

@@ -69,4 +69,36 @@ class UsuariosController extends Controller
 // Devolver una respuesta con todos los registros
     return response()->json($usuarios , 200);
 }
+
+public function update(Request $request, $id)
+{
+    // Validar los datos recibidos del frontend
+    $request->validate([
+        'usuario' => 'required|string',
+        'contrasena' => 'required|string',
+        'rol' => 'required|string',
+        'correo' => 'required|email',
+    ]);
+
+    // Buscar el usuario por su ID
+    $usuario = Usuario::find($id);
+
+    // Verificar si el usuario fue encontrado
+    if (!$usuario) {
+        return response()->json(['message' => 'Usuario no encontrado'], 404);
+    }
+
+    // Actualizar los valores del usuario con los nuevos valores recibidos
+    $usuario->usuario = $request->input('usuario');
+    $usuario->contrasena = bcrypt($request->input('contrasena')); // Encriptar la contraseña
+    $usuario->rol = $request->input('rol');
+    $usuario->correo = $request->input('correo');
+
+    // Guardar los cambios en la base de datos
+    $usuario->save();
+
+    // Devolver una respuesta indicando que se ha actualizado correctamente
+    return response()->json(['message' => 'Usuario actualizado correctamente'], 200);
+}
+
 }

@@ -37,5 +37,33 @@ class AreaRestauranteController extends Controller
         return response()->json($areas, 200);
     }
     
-    
+    public function update(Request $request, $id)
+{
+    // Validar los datos recibidos del frontend
+    $request->validate([
+        'nombre' => 'required|string',
+        'fumadores' => 'nullable|boolean',
+        'movilidad_mesas' => 'nullable|boolean',
+    ]);
+
+    // Buscar el área por su ID
+    $area = AreaRestaurante::find($id);
+
+    // Verificar si el área fue encontrada
+    if (!$area) {
+        return response()->json(['message' => 'Área no encontrada'], 404);
+    }
+
+    // Actualizar los valores del área con los nuevos valores recibidos
+    $area->nombre = $request->input('nombre');
+    $area->fumadores = $request->input('fumadores');
+    $area->movilidad_mesas = $request->input('movilidad_mesas');
+
+    // Guardar los cambios en la base de datos
+    $area->save();
+
+    // Devolver una respuesta indicando que se ha actualizado correctamente
+    return response()->json(['message' => 'Área actualizada correctamente'], 200);
+}
+
 }
