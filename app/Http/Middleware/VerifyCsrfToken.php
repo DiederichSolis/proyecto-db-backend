@@ -43,6 +43,6 @@ class VerifyCsrfToken extends Middleware
     '/getusuarios',
     '/updateusuarios',
     '/updateareas',
-    '/updatemesas'
+    '/updatemesas/*'
     ];
 }

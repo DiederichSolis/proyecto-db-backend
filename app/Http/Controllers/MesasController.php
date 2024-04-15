@@ -44,38 +44,23 @@ public function get_mesas($id_area)
 
 
 
-    public function update(Request $request, $id)
+public function update($mesaId)
 {
-    // Validar los datos recibidos del frontend
-    $request->validate([
-        'Id_area' => 'required|exists:areas_restaurante,id',
-        'capacidad' => 'required|integer',
-        'movible' => 'required|boolean',
-        'disponible' => 'required|boolean',
-        'unida' => 'required|boolean',
-    ]);
-
-    // Buscar la mesa por su ID
-    $mesa = Mesas::find($id);
-
-    // Verificar si la mesa fue encontrada
+    $mesa = Mesas::find($mesaId);
     if (!$mesa) {
-        return response()->json(['message' => 'Mesa no encontrada'], 404);
+        return response()->json(['error' => 'Mesa no encontrada'], 404);
     }
 
-    // Actualizar los valores de la mesa con los nuevos valores recibidos
-    $mesa->Id_area = $request->input('Id_area');
-    $mesa->capacidad = $request->input('capacidad');
-    $mesa->movible = $request->input('movible');
-    $mesa->disponible = $request->input('disponible');
-    $mesa->unida = $request->input('unida');
-
-    // Guardar los cambios en la base de datos
+    $nuevoEstado = !$mesa->disponible;
+    $mesa->disponible = $nuevoEstado;
     $mesa->save();
 
-    // Devolver una respuesta indicando que se ha actualizado correctamente
-    return response()->json(['message' => 'Mesa actualizada correctamente'], 200);
+    return response()->json(['message' => 'Estado de mesa actualizado correctamente', 'nuevoEstado' => $nuevoEstado]);
 }
+
+
+
+
 
 
 }

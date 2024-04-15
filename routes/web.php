@@ -65,7 +65,7 @@ Route::post('/login', [UsuariosController::class, 'login']);
 Route::post('/mesas', [MesasController::class, 'store']);
 Route::get('/getmesas/{id_area}', [MesasController::class, 'get_mesas']);
 
-Route::put('/updatemesas', [MesasController::class, 'update']);
+Route::put('/updatemesas/{mesaId}', [MesasController::class, 'update']);
 
 
 
