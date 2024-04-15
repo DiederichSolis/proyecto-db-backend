@@ -45,6 +45,11 @@ class VerifyCsrfToken extends Middleware
     '/getusuarios',
     '/updateusuarios',
     '/updateareas',
-    '/updatemesas/*'
+    '/updatemesas/*',
+    '/desactivar',
+    '/getCuenta/*',
+    '/getId/*',
+    '/enviarBebidas',
+    '/enviarPlatos',
     ];
 }

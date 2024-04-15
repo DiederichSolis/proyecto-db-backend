@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Database\Eloquent\Model;
+
 use App\Models\OrdenesPlatos;
 use Illuminate\Http\Request;
 
@@ -42,4 +44,8 @@ public function get_ordenesplatos()
     return response()->json($ordenesplatos , 200);
 }
 
+
 }
+
+
+

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Mesa;
+use App\Models\Mesas;
 use App\Models\Cliente;
 
 class Cuenta extends Model
@@ -16,12 +16,11 @@ class Cuenta extends Model
         'Id_cliente',
         'estado',
         'total',
-        'fecha',
     ];
 
     public function mesa()
     {
-        return $this->belongsTo(Mesa::class, 'Id_mesa');
+        return $this->belongsTo(Mesas::class, 'Id_mesa');
     }
 
     public function cliente()

@@ -1,9 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Validator;
 use App\Models\ordenes;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use App\Models\OrdenesPlatos;
+
+
+
 
 class OrdenesController extends Controller
 {
@@ -36,6 +41,7 @@ class OrdenesController extends Controller
         }
     }
 
+
 public function get_ordenes()
 {
     
@@ -45,4 +51,32 @@ public function get_ordenes()
     return response()->json($ordenes , 200);
 }
 
+public function enviarBebida(Request $request)
+{
+    try {
+        $idCuenta = $request->input('Id_cuenta'); // Obtener el ID de cuenta desde la solicitud
+
+        if (!$idCuenta) {
+            throw new \Exception('No se proporcionó el ID de cuenta.');
+        }
+
+        $idBebida = $request->input('Id_bebida');
+        $cantidad = $request->input('cantidad_bebida');
+
+        // Crear una nueva orden
+        $ordenes = new ordenes();
+        $ordenes->Id_cuenta = $idCuenta;
+        $ordenes->Id_bebida = $idBebida;
+        $ordenes->cantidad_bebida = $cantidad;
+        $ordenes->estado = true; // Puedes ajustar el estado según sea necesario
+        $ordenes->save();
+
+        return response()->json(['message' => 'La bebida ha sido enviada correctamente.']);
+    } catch (\Exception $e) {
+        return response()->json(['error' => $e->getMessage()], 500);
+    }
 }
+
+
+}
+
