@@ -30,13 +30,13 @@ class DrinksController extends Controller
     }
     public function get_drinks()
     {
-        // Obtener todos los registros de la tabla drinks con datos relacionados
-        $drinks = Drinks::with('Cliente', 'Mesas', 'AreaRestaurante', 'Cuenta')->get();
+        $drinks = Drinks::all();
     
-        // Devolver una respuesta con todos los registros
         return response()->json($drinks, 200);
     }
     
+    
+
     
     
 }

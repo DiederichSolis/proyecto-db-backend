@@ -73,6 +73,8 @@ Route::put('/updatemesas/{mesaId}', [MesasController::class, 'update']);
 //route para cuenta
 Route::post('/cuenta',[CuentaController::class, 'store']);
 Route::get('/getcuenta', [CuentaController::class, 'get_cliente']);
+Route::post('/desactivar', [CuentaController::class, 'desactivarCuenta']);
+Route::get('/getId/{id}', [CuentaController::class, 'getId']);
 
 
 
@@ -88,9 +90,15 @@ Route::get('/getdrinks', [DrinksController::class, 'get_drinks']);
 
 
 
+
 //route para ordenes
 Route::post('/ordenes',[OrdenesController::class, 'store']);
 Route::get('/getordenes', [OrdenesController::class, 'get_ordenes']);
+Route::post('/enviarBebidas', [OrdenesController::class, 'enviarBebida']);
+
+
+//route para ordenesPlatos
+Route::post('/enviarPlatos',[OrdenesController::class, 'enviarPlato']);
 
 
 

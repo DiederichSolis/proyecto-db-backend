@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\ordenes;
+use Illuminate\Database\Eloquent\Model;
+use App\Models\OrdenesPlatos;
 use Illuminate\Http\Request;
 
 class OrdenesController extends Controller
@@ -42,4 +42,8 @@ public function get_ordenes()
     return response()->json($ordenes , 200);
 }
 
+
 }
+
+
+
