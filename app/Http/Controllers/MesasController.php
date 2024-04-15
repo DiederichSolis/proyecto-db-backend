@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Mesas;
 use Illuminate\Http\Request;
 
+
 class MesasController extends Controller
 {
     public function store(Request $request)
@@ -19,7 +20,7 @@ class MesasController extends Controller
     ]);
 
     // Crear una nueva instancia del modelo y asignar los valores recibidos
-    $mesa = new Mesa();
+    $mesa = new Mesas();
     $mesa->Id_area = $request->input('Id_area');
     $mesa->capacidad = $request->input('capacidad');
     $mesa->movible = $request->input('movible');
@@ -43,7 +44,7 @@ class MesasController extends Controller
     }
 
 
-    
+
     public function update(Request $request, $id)
 {
     // Validar los datos recibidos del frontend
@@ -56,7 +57,7 @@ class MesasController extends Controller
     ]);
 
     // Buscar la mesa por su ID
-    $mesa = Mesa::find($id);
+    $mesa = Mesas::find($id);
 
     // Verificar si la mesa fue encontrada
     if (!$mesa) {

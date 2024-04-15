@@ -18,7 +18,7 @@ class PlatosController extends Controller
     ]);
 
     // Crear una nueva instancia del modelo y asignar los valores recibidos
-    $plato = new Plato();
+    $plato = new Platos();
     $plato->nombre = $request->input('nombre');
     $plato->descripcion = $request->input('descripcion');
     $plato->precio = $request->input('precio');

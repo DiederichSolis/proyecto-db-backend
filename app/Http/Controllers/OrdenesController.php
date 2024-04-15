@@ -18,7 +18,7 @@ class OrdenesController extends Controller
     ]);
 
     // Crear una nueva instancia del modelo y asignar los valores recibidos
-    $orden = new Orden();
+    $orden = new ordenes();
     $orden->Id_cuenta = $request->input('Id_cuenta');
     $orden->Id_plato = $request->input('Id_plato');
     $orden->Id_bebida = $request->input('Id_bebida');

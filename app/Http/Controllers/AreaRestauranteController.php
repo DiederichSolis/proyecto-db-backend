@@ -12,14 +12,12 @@ class AreaRestauranteController extends Controller
         $request->validate([
             'nombre' => 'required|string',
             'fumadores' => 'nullable|boolean',
-            'movilidad_mesas' => 'nullable|boolean',
         ]);
 
         // Crear una nueva instancia del modelo y asignar los valores recibidos
         $area = new AreaRestaurante();
         $area->nombre = $request->input('nombre');
         $area->fumadores = $request->input('fumadores');
-        $area->movilidad_mesas = $request->input('movilidad_mesas');
 
         // Guardar el nuevo registro en la base de datos
         $area->save();
@@ -43,7 +41,6 @@ class AreaRestauranteController extends Controller
     $request->validate([
         'nombre' => 'required|string',
         'fumadores' => 'nullable|boolean',
-        'movilidad_mesas' => 'nullable|boolean',
     ]);
 
     // Buscar el área por su ID
@@ -57,7 +54,6 @@ class AreaRestauranteController extends Controller
     // Actualizar los valores del área con los nuevos valores recibidos
     $area->nombre = $request->input('nombre');
     $area->fumadores = $request->input('fumadores');
-    $area->movilidad_mesas = $request->input('movilidad_mesas');
 
     // Guardar los cambios en la base de datos
     $area->save();

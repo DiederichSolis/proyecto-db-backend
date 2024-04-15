@@ -13,7 +13,7 @@ use App\Http\Controllers\MeserosController;
 use App\Http\Controllers\EncuestasController;
 use App\Http\Controllers\QuejasController;
 use App\Http\Controllers\FacturasController;
-
+use App\Http\Controllers\CuentaController;
 
 
 

@@ -17,7 +17,7 @@ class DrinksController extends Controller
         ]);
     
         // Crear una nueva instancia del modelo y asignar los valores recibidos
-        $drink = new Drink();
+        $drink = new Drinks();
         $drink->nombre = $request->input('nombre');
         $drink->descripcion = $request->input('descripcion');
         $drink->precio = $request->input('precio');
@@ -32,7 +32,7 @@ class DrinksController extends Controller
     public function get_drinks()
     {
         // Obtener todos los registros de la tabla drinks con datos relacionados
-        $drinks = Drink::with('cliente', 'mesa', 'area')->get();
+        $drinks = Drinks::with('cliente', 'mesa', 'area')->get();
     
         // Devolver una respuesta con todos los registros
         return response()->json($drinks, 200);
