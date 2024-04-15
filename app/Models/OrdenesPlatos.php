@@ -8,7 +8,7 @@ use App\Models\Cuenta;
 use App\Models\Plato;
 use App\Models\Drink;
 
-class ordenes extends Model
+class OrdenesPlatos extends Model
 {
     use HasFactory;
 

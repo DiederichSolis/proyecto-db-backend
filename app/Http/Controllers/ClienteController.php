@@ -22,5 +22,12 @@ public function store(Request $request)
     }
 
 
+public function get_cliente()
+{
+    $clientes = Cliente::all();
+
+    return response()->json($clientes, 200);
+}
+
 
 }

@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Cliente; // Agrega esta línea para importar el modelo Cliente
+
 
 class Drinks extends Model
 {
@@ -16,4 +18,9 @@ class Drinks extends Model
         'descripcion',
         'precio',
     ];
+
+
+
+
+    
 }

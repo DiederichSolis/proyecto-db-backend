@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ordenes;
+use App\Models\OrdenesPlatos;
 use Illuminate\Http\Request;
 
-class OrdenesController extends Controller
+class OrdenesPlatosController extends Controller
 {
     public function store(Request $request)
 {
@@ -13,16 +13,16 @@ class OrdenesController extends Controller
     $request->validate([
         'Id_cuenta' => 'required|integer',
         'Id_plato' => 'required|integer',
-        'cantidad' => 'required|integer',
+        'cantidad_platos' => 'required|integer',
 
         'estado' => 'required|integer',
     ]);
 
     // Crear una nueva instancia del modelo y asignar los valores recibidos
-    $orden = new ordenes();
+    $orden = new Ordenesplatos();
     $orden->Id_cuenta = $request->input('Id_cuenta');
     $orden->Id_plato = $request->input('Id_plato');
-    $orden->cantidad = $request->input('cantidad');
+    $orden->cantidad_platos = $request->input('cantidad_platos');
 
     $orden->estado = $request->input('estado');
 
@@ -33,13 +33,13 @@ class OrdenesController extends Controller
     return response()->json(['message' => 'Orden creada correctamente'], 201);
 }
 
-public function get_ordenes()
+public function get_ordenesplatos()
 {
 // Obtener todos los registros de la tabla areas_restaurante
-     $ordenes = ordenes::all();
+     $ordenesplatos = Ordenesplatos::all();
 
 // Devolver una respuesta con todos los registros
-    return response()->json($ordenes , 200);
+    return response()->json($ordenesplatos , 200);
 }
 
 }

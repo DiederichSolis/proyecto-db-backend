@@ -14,6 +14,10 @@ use App\Http\Controllers\EncuestasController;
 use App\Http\Controllers\QuejasController;
 use App\Http\Controllers\FacturasController;
 use App\Http\Controllers\CuentaController;
+use App\Http\Controllers\OrdenesPlatosController;
+
+
+
 
 
 
@@ -64,6 +68,7 @@ Route::post('/login', [UsuariosController::class, 'login']);
 //route oara mesas
 Route::post('/mesas', [MesasController::class, 'store']);
 Route::get('/getmesas/{id_area}', [MesasController::class, 'get_mesas']);
+Route::get('/getmesas', [MesasController::class, 'get_mesass']);
 
 Route::put('/updatemesas/{mesaId}', [MesasController::class, 'update']);
 
@@ -72,7 +77,7 @@ Route::put('/updatemesas/{mesaId}', [MesasController::class, 'update']);
 
 //route para cuenta
 Route::post('/cuenta',[CuentaController::class, 'store']);
-Route::get('/getcuenta', [CuentaController::class, 'get_cliente']);
+Route::get('/getcuenta', [CuentaController::class, 'get_cuenta']);
 
 
 
@@ -89,8 +94,13 @@ Route::get('/getdrinks', [DrinksController::class, 'get_drinks']);
 
 
 //route para ordenes
-Route::post('/ordenes',[OrdenesController::class, 'store']);
+Route::post('/ordenesbebidas',[OrdenesController::class, 'store']);
 Route::get('/getordenes', [OrdenesController::class, 'get_ordenes']);
+
+//route para ordenes
+Route::post('/ordenesplatos',[OrdenesPlatosController::class, 'store']);
+Route::get('/getordenesplatos', [OrdenesPlatosController::class, 'get_ordenesplatos']);
+
 
 
 

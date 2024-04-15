@@ -42,6 +42,15 @@ public function get_mesas($id_area)
 }
 
 
+public function get_mesass()
+{
+    $mesas = Mesas::all();
+
+    return response()->json($mesas, 200);
+}
+
+
+
 
 
 public function update($mesaId)

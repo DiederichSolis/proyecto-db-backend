@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Cuenta;
 use App\Models\Plato;
-use App\Models\Drink;
+use App\Models\Drinks;
 
 class ordenes extends Model
 {
@@ -26,13 +26,8 @@ class ordenes extends Model
         return $this->belongsTo(Cuenta::class, 'Id_cuenta', 'id');
     }
 
-    public function plato()
-    {
-        return $this->belongsTo(Plato::class, 'Id_plato', 'id');
-    }
-
     public function drink()
     {
-        return $this->belongsTo(Drink::class, 'Id_bebida', 'id');
+        return $this->belongsTo(Drinks::class, 'Id_bebida', 'id');
     }
 }
