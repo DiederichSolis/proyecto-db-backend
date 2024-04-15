@@ -34,14 +34,13 @@ class MesasController extends Controller
     return response()->json(['message' => 'Mesa creada correctamente'], 201);
 }
 
-       public function get_mesas()
-    {
-    // Obtener todos los registros de la tabla areas_restaurante
-         $mesas = Mesas::all();
+public function get_mesas($id_area)
+{
+    $mesas = Mesas::where('Id_area', $id_area)->get();
 
-    // Devolver una respuesta con todos los registros
-        return response()->json($mesas, 200);
-    }
+    return response()->json($mesas, 200);
+}
+
 
 
 
