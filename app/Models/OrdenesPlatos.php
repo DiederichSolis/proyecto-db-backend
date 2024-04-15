@@ -12,12 +12,12 @@ class ordenes extends Model
 {
     use HasFactory;
 
-    protected $table = 'ordenes';
+    protected $table = 'ordenesplatos';
     
     protected $fillable = [
         'Id_cuenta',
-        'Id_bebida',
-        'cantidad_bebida',
+        'Id_plato',
+        'cantidad_platos',
         'estado'
     ];
 
@@ -31,8 +31,5 @@ class ordenes extends Model
         return $this->belongsTo(Plato::class, 'Id_plato', 'id');
     }
 
-    public function drink()
-    {
-        return $this->belongsTo(Drink::class, 'Id_bebida', 'id');
-    }
+   
 }

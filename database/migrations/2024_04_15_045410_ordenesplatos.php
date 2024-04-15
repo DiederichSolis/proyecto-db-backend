@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ordenes', function (Blueprint $table) {
+        Schema::create('ordenesplatos', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('Id_cuenta')->unsigned();
             $table->foreign('Id_cuenta')->references('id')->on('cuenta');
-            $table->integer('Id_bebida')->unsigned();
-            $table->foreign('Id_bebida')->references('id')->on('drinks');
-            $table->integer('cantidad_bebida');
+            $table->integer('Id_plato')->unsigned();
+            $table->foreign('Id_plato')->references('id')->on('platos');
+            $table->integer('cantidad_platos');
             $table->boolean('estado')->default(false);
             $table->timestamps();
         });
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ordenes');
+        Schema::dropIfExists('ordenesplatos');
     }
 };

@@ -12,16 +12,18 @@ class OrdenesController extends Controller
     // Validar los datos recibidos del frontend
     $request->validate([
         'Id_cuenta' => 'required|integer',
-        'Id_bebida' => 'required|integer',
+        'Id_plato' => 'required|integer',
         'cantidad' => 'required|integer',
+
         'estado' => 'required|integer',
     ]);
 
     // Crear una nueva instancia del modelo y asignar los valores recibidos
     $orden = new ordenes();
     $orden->Id_cuenta = $request->input('Id_cuenta');
-    $orden->Id_bebida = $request->input('Id_bebida');
+    $orden->Id_plato = $request->input('Id_plato');
     $orden->cantidad = $request->input('cantidad');
+
     $orden->estado = $request->input('estado');
 
     // Guardar el nuevo registro en la base de datos
