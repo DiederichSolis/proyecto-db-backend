@@ -7,7 +7,7 @@ use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\MesasController;
 use App\Http\Controllers\PlatosController;
 use App\Http\Controllers\DrinksController;
-use App\Http\Controllers\OrdenesController;
+use App\Http\Controllers\ordenesController;
 use App\Http\Controllers\PagosController;
 use App\Http\Controllers\MeserosController;
 use App\Http\Controllers\EncuestasController;
@@ -99,6 +99,10 @@ Route::get('/getdrinks', [DrinksController::class, 'get_drinks']);
 //route para ordenes
 Route::post('/ordenesbebidas',[OrdenesController::class, 'store']);
 Route::get('/getordenes', [OrdenesController::class, 'get_ordenes']);
+Route::post('/enviarBebidas', [OrdenesController::class, 'enviarBebida']);
+
+//route para ordenesplatos
+Route::post('/enviarPlatos',[OrdenesPlatosController::class, 'enviarPlato']);
 
 
 

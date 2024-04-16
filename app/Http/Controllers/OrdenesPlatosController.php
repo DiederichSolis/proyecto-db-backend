@@ -35,10 +35,37 @@ class OrdenesPlatosController extends Controller
     return response()->json(['message' => 'Orden creada correctamente'], 201);
 }
 
+public function enviarPlato(Request $request)
+{
+    try {
+        $idCuenta = $request->input('Id_cuenta'); // Obtener el ID de cuenta desde la solicitud
+
+        if (!$idCuenta) {
+            throw new \Exception('No se proporcionó el ID de cuenta.');
+        }
+
+        $idPlato = $request->input('Id_plato');
+        $cantidad = $request->input('cantidad_platos');
+
+        // Crear una nueva orden
+        $ordenes = new OrdenesPlatos();
+        $ordenes->Id_cuenta = $idCuenta;
+        $ordenes->Id_plato = $idPlato;
+        $ordenes->cantidad_platos = $cantidad;
+        $ordenes->estado = true; // Puedes ajustar el estado según sea necesario
+        $ordenes->save();
+
+        return response()->json(['message' => 'El plato ha sido enviado correctamente.']);
+    } catch (\Exception $e) {
+        return response()->json(['error' => $e->getMessage()], 500);
+    }
+}
+
+
 public function get_ordenesplatos()
 {
 // Obtener todos los registros de la tabla areas_restaurante
-     $ordenesplatos = Ordenesplatos::all();
+     $ordenesplatos = OrdenesPlatos::all();
 
 // Devolver una respuesta con todos los registros
     return response()->json($ordenesplatos , 200);
