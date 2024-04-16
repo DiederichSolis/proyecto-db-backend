@@ -77,7 +77,7 @@ Route::put('/updatemesas/{mesaId}', [MesasController::class, 'update']);
 
 //route para cuenta
 Route::post('/cuenta',[CuentaController::class, 'store']);
-Route::get('/getcuenta', [CuentaController::class, 'get_cliente']);
+Route::get('/getcuenta', [CuentaController::class, 'get_cuenta']);
 Route::post('/desactivar', [CuentaController::class, 'desactivarCuenta']);
 Route::get('/getId/{id}', [CuentaController::class, 'getId']);
 
